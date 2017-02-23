@@ -3,6 +3,7 @@
 *.a
 *.so
 data/*.out
+hashcode-pizza
 
 # Folders
 _obj
