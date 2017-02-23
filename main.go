@@ -18,12 +18,15 @@ func main() {
 	fmt.Printf("video sizes (%d): %v\n", len(videoSizes), videoSizes)
 	fmt.Printf("endpoints (%d): %v\n", len(endpoints), endpoints)
 	fmt.Printf("requests (%d): %v\n", len(requests), requests)
-	fmt.Printf("caches (%d): %v\n", len(cacheContents), cacheContents)
+	fmt.Printf("caches pre (%d): %v\n", len(cacheContents), cacheContents)
 
 	err = process(videoSizes, endpoints, requests, cacheSize, cacheContents)
 	if err != nil {
 		panic(err)
 	}
+
+	//fmt.Printf("caches post (%d): %v\n", len(cacheContents), cacheContents)
+
 	// dump output
 	f, _ := os.Create(fileName + ".out")
 	defer f.Close()

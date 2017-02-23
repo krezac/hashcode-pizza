@@ -26,6 +26,7 @@ func (c *cacheContent) write(w io.Writer, i int) {
 func writeOutput(w io.Writer, out []cacheContent) {
 	fmt.Fprintf(w, "%d\n", usedCaches(out))
 	for i, cc := range out {
+		fmt.Println(cc.videos)
 		if len(cc.videos) > 0 {
 			cc.write(w, i)
 		}
