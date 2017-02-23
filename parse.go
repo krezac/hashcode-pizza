@@ -101,11 +101,11 @@ func readFile(fileName string) ([]int, []endpoint, []request, int, []cacheConten
 		if err != nil {
 			return nil, nil, nil, 0, nil, err
 		}
-		endpoint, err := strconv.Atoi(e[0])
+		endpoint, err := strconv.Atoi(e[1])
 		if err != nil {
 			return nil, nil, nil, 0, nil, err
 		}
-		reqCount, err := strconv.Atoi(e[0])
+		reqCount, err := strconv.Atoi(e[2])
 		if err != nil {
 			return nil, nil, nil, 0, nil, err
 		}
