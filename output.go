@@ -5,13 +5,29 @@ import (
 	"io"
 )
 
-func (s *slice) write(w io.Writer) {
-	fmt.Fprintf(w, "%d %d %d %d\n", s.r0, s.c0, s.r1, s.c1)
+func usedCaches(c []cacheContent) int {
+	used := 0
+	for _, cc := range c {
+		if len(cc.videos) > 0 {
+			used++
+		}
+	}
+	return used
 }
 
-func writeOutput(w io.Writer, slices []slice) {
-	fmt.Fprintf(w, "%d\n", len(slices))
-	for _, s := range slices {
-		s.write(w)
+func (c *cacheContent) write(w io.Writer, i int) {
+	fmt.Fprintf(w, "%d", i)
+	for _, v := range c.videos {
+		fmt.Fprintf(w, " %d", v)
+	}
+	fmt.Fprintln(w)
+}
+
+func writeOutput(w io.Writer, out []cacheContent) {
+	fmt.Fprintf(w, "%d\n", usedCaches(out))
+	for i, cc := range out {
+		if len(cc.videos) > 0 {
+			cc.write(w, i)
+		}
 	}
 }

@@ -1,10 +1,21 @@
 package main
 
-const (
-	Mushroom = 'M'
-	Tomato   = 'T'
-)
+type cacheLatency struct {
+	cache   int
+	latency int
+}
 
-type slice struct {
-	r0, r1, c0, c1 int
+type endpoint struct {
+	latency        int            // endpoint latency
+	cacheLatencies []cacheLatency // caches latencies
+}
+
+type request struct {
+	video    int
+	endpoint int
+	count    int
+}
+
+type cacheContent struct {
+	videos []int
 }
