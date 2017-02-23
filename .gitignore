@@ -4,6 +4,7 @@
 *.so
 data/*.out
 hashcode-pizza
+src.zip
 
 # Folders
 _obj
