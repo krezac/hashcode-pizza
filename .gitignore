@@ -2,6 +2,7 @@
 *.o
 *.a
 *.so
+data/*.out
 
 # Folders
 _obj
